@@ -22,11 +22,20 @@ features as (
         total_spend,
         avg_order_value,
 
-        -- Recency (days since last purchase)
+        -- Recency (relative to dataset end)
         date_part(
             'day',
-            current_timestamp - last_order_timestamp
-        ) as recency_days
+            max(last_order_timestamp) over () - last_order_timestamp
+        ) as recency_days,
+
+        -- Target label
+        case
+            when date_part(
+                'day',
+                max(last_order_timestamp) over () - last_order_timestamp
+            ) <= 30 then 1
+            else 0
+        end as converted
 
     from customer_orders
 
