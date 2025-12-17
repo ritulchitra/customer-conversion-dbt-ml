@@ -1,0 +1,28 @@
+name: 'supabase_project'
+version: '1.0.0'
+
+profile: 'supabase_project'
+
+# Correct paths (VERY IMPORTANT)
+model-paths: ["dbt/supabase_project/models"]
+analysis-paths: ["dbt/supabase_project/analyses"]
+test-paths: ["dbt/supabase_project/tests"]
+seed-paths: ["dbt/supabase_project/seeds"]
+macro-paths: ["dbt/supabase_project/macros"]
+snapshot-paths: ["dbt/supabase_project/snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  supabase_project:
+
+    staging:
+      +materialized: view
+
+    intermediate:
+      +materialized: view
+
+    marts:
+      +materialized: view
