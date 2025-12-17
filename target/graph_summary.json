@@ -1,1 +1,0 @@
-{"_invocation_id": "f623b3da-169c-4ee4-a079-3d9c96fcac33", "linked": {"0": {"name": "model.supabase_project.int_customer_orders", "type": "model", "succ": [2]}, "1": {"name": "model.supabase_project.stg_orders", "type": "model", "succ": [0]}, "2": {"name": "model.supabase_project.fct_customer_features", "type": "model"}}}
